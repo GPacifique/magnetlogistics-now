@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { images } from '../assets/images';
+import { FaPlane, FaShip, FaTruck, FaClipboard, FaWarehouse, FaGlobe, FaBolt, FaDollarSign, FaLock } from 'react-icons/fa';
 import './Services.css';
 
 function Services() {
@@ -9,7 +10,7 @@ function Services() {
   const services = [
     {
       title: 'Air Freight',
-      icon: '✈️',
+      icon: <FaPlane />,
       description: 'Fast and reliable air cargo services for urgent shipments worldwide with priority handling',
       features: ['Express delivery options', 'Real-time GPS tracking', 'Door-to-door service', 'Customs clearance assistance', 'Temperature-controlled cargo', 'Hazardous materials handling'],
       image: images.services.air,
@@ -17,7 +18,7 @@ function Services() {
     },
     {
       title: 'Sea Freight',
-      icon: '🚢',
+      icon: <FaShip />,
       description: 'Cost-effective ocean freight solutions for large-scale shipments across all major ports',
       features: ['Full Container Load (FCL)', 'Less than Container Load (LCL)', 'Port-to-port service', 'Comprehensive insurance coverage', 'Break-bulk cargo', 'Roll-on/Roll-off (RoRo)'],
       image: images.services.sea,
@@ -25,7 +26,7 @@ function Services() {
     },
     {
       title: 'Inland Transport',
-      icon: '🚛',
+      icon: <FaTruck />,
       description: 'Efficient ground transportation for domestic and cross-border deliveries nationwide',
       features: ['Nationwide coverage', 'Temperature-controlled trucks', 'Heavy cargo handling', '24/7 tracking support', 'Last-mile delivery', 'Multi-stop routing'],
       image: images.services.inland,
@@ -33,7 +34,7 @@ function Services() {
     },
     {
       title: 'Customs Clearance',
-      icon: '📋',
+      icon: <FaClipboard />,
       description: 'Expert customs clearance services to streamline your imports and exports efficiently',
       features: ['Documentation assistance', 'Duty & tax calculation', 'Compliance support', 'Fast processing', 'Regulatory consulting', 'Import/Export permits'],
       image: images.services.customs,
@@ -41,7 +42,7 @@ function Services() {
     },
     {
       title: 'Warehousing',
-      icon: '🏭',
+      icon: <FaWarehouse />,
       description: 'Secure storage solutions with advanced inventory management and distribution services',
       features: ['Climate-controlled facilities', 'Advanced security systems', 'Real-time inventory tracking', 'Order fulfillment services', 'Cross-docking', 'Pick and pack services'],
       image: images.services.warehousing,
@@ -110,22 +111,22 @@ function Services() {
           <h2>Why Choose Our Services?</h2>
           <div className="feature-boxes">
             <div className="feature-box">
-              <div className="feature-box-icon">🌍</div>
+              <div className="feature-box-icon"><FaGlobe /></div>
               <h3>Global Network</h3>
               <p>Access to 200+ countries with local expertise everywhere</p>
             </div>
             <div className="feature-box">
-              <div className="feature-box-icon">⚡</div>
+              <div className="feature-box-icon"><FaBolt /></div>
               <h3>Fast Processing</h3>
               <p>Quick turnaround times for all your logistics needs</p>
             </div>
             <div className="feature-box">
-              <div className="feature-box-icon">💰</div>
+              <div className="feature-box-icon"><FaDollarSign /></div>
               <h3>Competitive Rates</h3>
               <p>Best value for money without compromising quality</p>
             </div>
             <div className="feature-box">
-              <div className="feature-box-icon">🔒</div>
+              <div className="feature-box-icon"><FaLock /></div>
               <h3>Secure & Insured</h3>
               <p>Full insurance coverage and security for your cargo</p>
             </div>
