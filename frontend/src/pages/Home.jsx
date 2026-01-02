@@ -1,11 +1,31 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { FaTruck, FaBoxOpen, FaGlobe, FaDollarSign } from 'react-icons/fa';
 import { images } from '../assets/images';
+import SocialLinks from '../components/SocialLinks';
+  const partners = [
+    { name: 'GlobalExpress', img: images.generated.planes },
+    { name: 'OceanWave', img: images.generated.boats },
+    { name: 'SkyCargo', img: images.services.air },
+    { name: 'TransRail', img: images.generated.train },
+    { name: 'WareHub', img: images.generated.warehouse },
+  ];
 import './Home.css';
 
 function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [socialInView, setSocialInView] = useState(false);
+  const [showAllPosts, setShowAllPosts] = useState(false);
+  const socialRef = useRef(null);
+
+  const posts = [
+    { title: 'Optimizing Air Freight in Q1', meta: 'Dec 18, 2025 · 5 min read', href: '#' },
+    { title: 'Sea Freight Cost-Saving Strategies', meta: 'Dec 10, 2025 · 7 min read', href: '#' },
+    { title: 'Customs Compliance Checklist 2026', meta: 'Dec 02, 2025 · 4 min read', href: '#' },
+    { title: 'Warehousing: Improving Pick & Pack', meta: 'Nov 20, 2025 · 6 min read', href: '#' },
+    { title: 'Inland Transport: Route Optimization', meta: 'Nov 05, 2025 · 4 min read', href: '#' },
+  ];
   
   // Build slides from services flyers to show in hero
   const slides = [
@@ -124,6 +144,25 @@ function Home() {
     setCurrentTestimonial(index);
   };
 
+  // Reveal Social section on scroll
+  useEffect(() => {
+    const el = socialRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setSocialInView(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="home">
       {/* Hero Section with Auto-Sliding Services Flyers */}
@@ -169,22 +208,22 @@ function Home() {
         <h2>Why Choose Magnet Logistics?</h2>
         <div className="features-grid">
           <div className="feature-card">
-            <div className="feature-icon">🚚</div>
+            <div className="feature-icon" aria-hidden="true"><FaTruck /></div>
             <h3>Fast Delivery</h3>
             <p>Swift and reliable delivery services across the globe</p>
           </div>
           <div className="feature-card">
-            <div className="feature-icon">📦</div>
+            <div className="feature-icon" aria-hidden="true"><FaBoxOpen /></div>
             <h3>Secure Packaging</h3>
             <p>Professional packaging to ensure your items arrive safely</p>
           </div>
           <div className="feature-card">
-            <div className="feature-icon">🌍</div>
+            <div className="feature-icon" aria-hidden="true"><FaGlobe /></div>
             <h3>Global Coverage</h3>
             <p>Worldwide shipping network spanning 200+ countries</p>
           </div>
           <div className="feature-card">
-            <div className="feature-icon">💰</div>
+            <div className="feature-icon" aria-hidden="true"><FaDollarSign /></div>
             <h3>Competitive Rates</h3>
             <p>Best prices in the industry without compromising quality</p>
           </div>
@@ -247,6 +286,43 @@ function Home() {
         </div>
       </section>
 
+      {/* Brand Presence Section */}
+      <section className="brand-section" aria-label="Brand presence">
+        <div className="brand-container">
+          <h2 className="brand-title">Your trusted partner in global logistics solutions</h2>
+          <p className="brand-subtitle">Delivering excellence since 2010</p>
+          <SocialLinks
+            links={{
+              facebook: 'https://www.facebook.com/',
+              twitter: 'https://x.com/',
+              linkedin: 'https://www.linkedin.com/',
+              instagram: 'https://www.instagram.com/'
+            }}
+            variant="row"
+            showLabels={false}
+            size={18}
+          />
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section className="partners" aria-label="Our partners">
+        <div className="partners-container">
+          <h2>Trusted by partners worldwide</h2>
+          <p className="partners-subtitle">A selection of brands we collaborate with</p>
+          <div className="partners-grid">
+            {partners.map((p, idx) => (
+              <div key={idx} className="partner-card" aria-label={p.name}>
+                <div className="partner-logo">
+                  <img src={p.img} alt={p.name} onError={(e) => (e.currentTarget.src = images.placeholder)} />
+                </div>
+                <div className="partner-name">{p.name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="cta">
         <h2>Ready to Ship with Us?</h2>
@@ -255,55 +331,43 @@ function Home() {
       </section>
 
       {/* Social & Recent Posts Section */}
-      <section className="social">
+      <section ref={socialRef} className={`social ${socialInView ? 'in-view' : ''}`}>
         <div className="social-container">
           <div className="social-grid">
-            <div className="social-card">
-              <h3>Connect With Us</h3>
-              <p className="social-subtitle">Follow our latest updates</p>
-              <div className="social-links">
-                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="social-link facebook" aria-label="Facebook">
-                  <i className="social-icon fa-brands fa-facebook-f" aria-hidden="true"></i>
-                  <span className="social-text">Facebook</span>
-                </a>
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="social-link instagram" aria-label="Instagram">
-                  <i className="social-icon fa-brands fa-instagram" aria-hidden="true"></i>
-                  <span className="social-text">Instagram</span>
-                </a>
-                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="social-link linkedin" aria-label="LinkedIn">
-                  <i className="social-icon fa-brands fa-linkedin-in" aria-hidden="true"></i>
-                  <span className="social-text">LinkedIn</span>
-                </a>
-                <a href="https://x.com/" target="_blank" rel="noopener noreferrer" className="social-link x" aria-label="X (Twitter)">
-                  <i className="social-icon fa-brands fa-x-twitter" aria-hidden="true"></i>
-                  <span className="social-text">X (Twitter)</span>
-                </a>
-              </div>
+            <div className="social-card social-hero">
+              <h2 className="social-hero-title">Your trusted partner in global logistics solutions</h2>
+              <p className="social-hero-subtitle">Delivering excellence since 2010</p>
+              <SocialLinks
+                links={{
+                  facebook: 'https://www.facebook.com/',
+                  twitter: 'https://x.com/',
+                  linkedin: 'https://www.linkedin.com/',
+                  instagram: 'https://www.instagram.com/'
+                }}
+                variant="row"
+                showLabels={false}
+                size={18}
+              />
             </div>
 
             <div className="posts-card">
               <h3>Recent Posts</h3>
               <p className="social-subtitle">Insights from our logistics team</p>
               <ul className="posts-list">
-                <li className="post-item">
-                  <a href="#" className="post-link" title="Optimizing Air Freight in Q1">
-                    <span className="post-title">Optimizing Air Freight in Q1</span>
-                    <span className="post-meta">Dec 18, 2025 · 5 min read</span>
-                  </a>
-                </li>
-                <li className="post-item">
-                  <a href="#" className="post-link" title="Sea Freight Cost-Saving Strategies">
-                    <span className="post-title">Sea Freight Cost-Saving Strategies</span>
-                    <span className="post-meta">Dec 10, 2025 · 7 min read</span>
-                  </a>
-                </li>
-                <li className="post-item">
-                  <a href="#" className="post-link" title="Customs Compliance Checklist 2026">
-                    <span className="post-title">Customs Compliance Checklist 2026</span>
-                    <span className="post-meta">Dec 02, 2025 · 4 min read</span>
-                  </a>
-                </li>
+                {(showAllPosts ? posts : posts.slice(0, 3)).map((p, idx) => (
+                  <li key={idx} className="post-item">
+                    <a href={p.href} className="post-link" title={p.title}>
+                      <span className="post-title">{p.title}</span>
+                      <span className="post-meta">{p.meta}</span>
+                    </a>
+                  </li>
+                ))}
               </ul>
+              <div className="posts-toggle">
+                <button className="btn btn-secondary" onClick={() => setShowAllPosts((v) => !v)}>
+                  {showAllPosts ? 'Show Less' : 'Load More'}
+                </button>
+              </div>
               <div className="posts-actions">
                 <Link to="/services" className="btn btn-secondary">Explore Services</Link>
                 <Link to="/contact" className="btn btn-primary">Talk to Us</Link>

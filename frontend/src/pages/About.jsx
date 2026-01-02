@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { FaBullseye, FaBinoculars, FaHandshake, FaLightbulb, FaUsers, FaGlobe, FaBolt, FaRocket, FaLock, FaDollarSign } from 'react-icons/fa';
 import { images } from '../assets/images';
 import './About.css';
 
@@ -106,7 +107,7 @@ function About() {
 
         <div className="mission-vision">
           <div className="mission-card" style={{backgroundImage: `url(${images.generated.planes})`}}>
-            <div className="card-icon">🎯</div>
+            <div className="card-icon" aria-hidden="true"><FaBullseye /></div>
             <h2>Our Mission</h2>
             <p>
               To provide innovative, reliable, and efficient logistics solutions that connect 
@@ -116,7 +117,7 @@ function About() {
           </div>
 
           <div className="mission-card vision-card" style={{backgroundImage: `url(${images.generated.boats})`}}>
-            <div className="card-icon">🔭</div>
+            <div className="card-icon" aria-hidden="true"><FaBinoculars /></div>
             <h2>Our Vision</h2>
             <p>
               To be the world's most trusted logistics partner, setting industry standards
@@ -130,32 +131,32 @@ function About() {
           <p className="section-subtitle">The principles that guide everything we do</p>
           <div className="values-grid">
             <div className="value-item">
-              <div className="value-icon">🎯</div>
+              <div className="value-icon" aria-hidden="true"><FaBullseye /></div>
               <h3>Reliability</h3>
               <p>We deliver on our promises, every single time</p>
             </div>
             <div className="value-item">
-              <div className="value-icon">🤝</div>
+              <div className="value-icon" aria-hidden="true"><FaHandshake /></div>
               <h3>Integrity</h3>
               <p>Honesty and transparency in all our dealings</p>
             </div>
             <div className="value-item">
-              <div className="value-icon">💡</div>
+              <div className="value-icon" aria-hidden="true"><FaLightbulb /></div>
               <h3>Innovation</h3>
               <p>Constantly evolving to meet changing needs</p>
             </div>
             <div className="value-item">
-              <div className="value-icon">👥</div>
+              <div className="value-icon" aria-hidden="true"><FaUsers /></div>
               <h3>Customer Focus</h3>
               <p>Your satisfaction is our top priority</p>
             </div>
             <div className="value-item">
-              <div className="value-icon">🌍</div>
+              <div className="value-icon" aria-hidden="true"><FaGlobe /></div>
               <h3>Sustainability</h3>
               <p>Committed to eco-friendly logistics solutions</p>
             </div>
             <div className="value-item">
-              <div className="value-icon">⚡</div>
+              <div className="value-icon" aria-hidden="true"><FaBolt /></div>
               <h3>Excellence</h3>
               <p>Striving for perfection in every delivery</p>
             </div>
@@ -192,7 +193,7 @@ function About() {
               <div className="showcase-image">
                 <img src={images.generated.train} alt="Fast Delivery" />
               </div>
-              <div className="showcase-icon">🚀</div>
+              <div className="showcase-icon" aria-hidden="true"><FaRocket /></div>
               <h3>Fast & Reliable</h3>
               <p>Express delivery options with real-time tracking for complete peace of mind</p>
             </div>
@@ -200,7 +201,7 @@ function About() {
               <div className="showcase-image">
                 <img src={images.generated.warehouse} alt="Secure Storage" />
               </div>
-              <div className="showcase-icon">🔒</div>
+              <div className="showcase-icon" aria-hidden="true"><FaLock /></div>
               <h3>Secure Handling</h3>
               <p>Advanced security measures to protect your valuable shipments</p>
             </div>
@@ -208,7 +209,7 @@ function About() {
               <div className="showcase-image">
                 <img src={images.generated.road} alt="Ground Transport" />
               </div>
-              <div className="showcase-icon">💰</div>
+              <div className="showcase-icon" aria-hidden="true"><FaDollarSign /></div>
               <h3>Competitive Pricing</h3>
               <p>Best rates in the industry without compromising on quality</p>
             </div>
@@ -216,7 +217,7 @@ function About() {
               <div className="showcase-image">
                 <img src={images.services.customs} alt="Global Network" />
               </div>
-              <div className="showcase-icon">🌐</div>
+              <div className="showcase-icon" aria-hidden="true"><FaGlobe /></div>
               <h3>Global Network</h3>
               <p>Extensive worldwide coverage with local expertise everywhere</p>
             </div>

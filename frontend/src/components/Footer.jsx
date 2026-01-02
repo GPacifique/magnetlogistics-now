@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { images } from '../assets/images';
 import './Footer.css';
+import ContactInfo from './ContactInfo';
+import SocialLinks from './SocialLinks';
 
 function Footer() {
   return (
@@ -12,12 +14,18 @@ function Footer() {
             <span className="logo-text">Magnet Logistics</span>
           </h3>
           <p>Your trusted partner in global logistics solutions. Delivering excellence since 2010.</p>
-          <div className="social-links">
-            <a href="#" aria-label="Facebook">📘</a>
-            <a href="#" aria-label="Twitter">🐦</a>
-            <a href="#" aria-label="LinkedIn">💼</a>
-            <a href="#" aria-label="Instagram">📷</a>
-          </div>
+          <SocialLinks
+            links={{
+              facebook: 'https://www.facebook.com/',
+              twitter: 'https://x.com/',
+              linkedin: 'https://www.linkedin.com/',
+              instagram: 'https://www.instagram.com/',
+              // youtube: 'https://www.youtube.com/@yourchannel',
+            }}
+            size={18}
+            variant="row"
+            className="footer-social"
+          />
         </div>
         
         <div className="footer-section">
@@ -44,13 +52,14 @@ function Footer() {
         
         <div className="footer-section">
           <h4>Contact Info</h4>
-          <ul className="contact-info">
-            <li>📍 GIKONDO/MAGERWA</li>
-            <li>📞 078 152 3519</li>
-            <li>📞 078 823 1034</li>
-            <li>📧 info@magnetlogistics.com</li>
-            <li>🕒 Mon-Fri: 8AM - 8PM EST</li>
-          </ul>
+          <ContactInfo
+            address="GIKONDO/MAGERWA"
+            mapLink="https://www.google.com/maps/search/?api=1&query=GIKONDO%20MAGERWA"
+            phones={["078 152 3519", "078 823 1034"]}
+            email="info@magnetlogistics.com"
+            hours="Mon-Fri: 8AM - 8PM EST"
+            compact
+          />
           {/* WhatsApp links moved to global floating buttons */}
         </div>
       </div>

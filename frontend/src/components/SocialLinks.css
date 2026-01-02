@@ -1,0 +1,56 @@
+.social-links-ui {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-links-ui.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.social-link-ui {
+  --brand-color: var(--primary-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-primary);
+  background: #ffffff;
+  border: 1px solid var(--border-gray);
+  border-radius: 12px;
+  padding: 10px 12px;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
+  will-change: transform, box-shadow;
+}
+
+.social-link-ui .icon-wrap {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: var(--brand-color);
+}
+
+.social-link-ui:hover {
+  transform: translateY(-2px) scale(1.03);
+  border-color: var(--brand-color);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+}
+
+.social-link-ui:hover .icon-wrap { color: #ffffff; background: var(--brand-color); }
+
+.social-link-ui:focus-visible {
+  outline: 3px solid color-mix(in oklab, var(--brand-color) 25%, transparent);
+  outline-offset: 3px;
+}
+
+.social-links-ui.row .social-link-ui { padding: 10px; }
+.social-links-ui.row .icon-label { display: none; }
+
+@media (max-width: 640px) {
+  .social-links-ui { gap: 10px; }
+}

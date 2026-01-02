@@ -1,3 +1,164 @@
+/* Partners Section */
+.partners {
+  background: white;
+  padding: 80px 24px;
+}
+
+.partners-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.partners h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+.partners-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+}
+
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.partner-card {
+  background: #f8fafc;
+  border: 1px solid var(--border-gray);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s ease;
+}
+
+.partner-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary-blue);
+  background: #ffffff;
+}
+
+.partner-logo {
+  width: 100%;
+  height: 100px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid var(--border-gray);
+}
+
+.partner-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.partner-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .partners {
+    padding: 60px 16px;
+  }
+}
+/* Brand Presence Section */
+.brand-section {
+  background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%);
+  padding: 80px 24px;
+}
+
+.brand-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.brand-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+}
+
+.brand-subtitle {
+  margin-top: 8px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.brand-icons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.brand-icons .brand { /* reuse existing .brand styles */ }
+.social-hero {
+  text-align: center;
+  padding: 32px;
+}
+
+.social-hero-title {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.social-hero-subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.social-brands {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.brand {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid var(--border-gray);
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+.brand i { font-size: 1.1rem; }
+
+.brand:hover { transform: translateY(-2px) scale(1.05); }
+
+/* Brand-specific colors */
+.brand.facebook { border-color: #1877F2; color: #1877F2; }
+.brand.x { border-color: #000000; color: #000000; }
+.brand.linkedin { border-color: #0A66C2; color: #0A66C2; }
+.brand.instagram { border-color: #E1306C; color: #E1306C; }
+
+.brand.facebook:hover { background: #1877F2; color: #ffffff; }
+.brand.x:hover { background: #000000; color: #ffffff; }
+.brand.linkedin:hover { background: #0A66C2; color: #ffffff; }
+.brand.instagram:hover { background: #E1306C; color: #ffffff; }
 .home {
   width: 100%;
 }
@@ -268,15 +429,13 @@
 .feature-icon {
   font-size: 3.5rem;
   margin-bottom: 24px;
-  background: linear-gradient(135deg, var(--primary-blue), var(--accent-orange));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: transform 0.2s ease;
+  color: var(--primary-blue);
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .feature-card:hover .feature-icon {
   transform: scale(1.05);
+  color: var(--accent-orange);
 }
 
 .feature-card h3 {
@@ -647,6 +806,14 @@
 .social {
   background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
   padding: 100px 24px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.social.in-view {
+  opacity: 1;
+  transform: none;
 }
 
 .social-container {
@@ -684,9 +851,10 @@
 }
 
 .social-links {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 16px;
+  justify-content: center;
 }
 
 .social-link {
@@ -700,12 +868,14 @@
   text-decoration: none;
   background: #f8fafc;
   transition: all 0.2s ease;
+  will-change: transform, box-shadow;
 }
 
 .social-link:hover {
   background: #ffffff;
   border-color: var(--primary-blue);
   box-shadow: 0 12px 24px rgba(30, 64, 175, 0.1);
+  transform: translateY(-2px);
 }
 
 /* Brand colors for social links */
@@ -728,6 +898,14 @@
   justify-content: center;
   border-radius: 8px;
   background: #ffffff;
+  transition: transform 160ms ease;
+}
+
+.social-link:hover .social-icon { transform: scale(1.08); }
+
+.social-link:focus-visible {
+  outline: 3px solid rgba(30, 64, 175, 0.25);
+  outline-offset: 2px;
 }
 
 .social-text {
@@ -778,6 +956,10 @@
   display: flex;
   gap: 12px;
 }
+
+.posts-toggle { margin-top: 16px; }
+
+.posts-toggle .btn { min-width: 140px; }
 
 @media (max-width: 768px) {
   .social {

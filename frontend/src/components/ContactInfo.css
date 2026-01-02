@@ -1,0 +1,38 @@
+.contact-info-ui {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.contact-info-ui.compact { gap: 8px; }
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-icon {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: #ffffff;
+  color: var(--primary-blue);
+  border: 1px solid var(--border-gray);
+}
+
+.contact-text {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.contact-text:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .contact-info-ui { gap: 8px; }
+}

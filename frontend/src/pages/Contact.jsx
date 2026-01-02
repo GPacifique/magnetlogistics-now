@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { images } from '../assets/images';
 import './Contact.css';
+import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt } from 'react-icons/fa';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -80,19 +81,19 @@ function Contact() {
           
           <div className="info-cards">
             <div className="info-card" style={{backgroundImage: `url(${images.generated.warehouse})`}}>
-              <div className="info-icon">📍</div>
+              <div className="info-icon" aria-hidden="true"><FaMapMarkerAlt /></div>
               <h3>Visit Us</h3>
               <p>GIKONDO/MAGERWA<br/>Kigali, Rwanda</p>
             </div>
             
             <div className="info-card" style={{backgroundImage: `url(${images.services.customs})`}}>
-              <div className="info-icon">📧</div>
+              <div className="info-icon" aria-hidden="true"><FaEnvelope /></div>
               <h3>Email Us</h3>
               <p>info@magnetlogistics.com<br/>support@magnetlogistics.com</p>
             </div>
             
             <div className="info-card" style={{backgroundImage: `url(${images.generated.road})`}}>
-              <div className="info-icon">📞</div>
+              <div className="info-icon" aria-hidden="true"><FaPhoneAlt /></div>
               <h3>Call Us</h3>
               <p>078 152 3519<br/>078 823 1034<br/>Mon-Fri: 8AM - 8PM EST</p>
             </div>
