@@ -253,6 +253,65 @@ function Home() {
         <p>Get started today and experience world-class logistics services</p>
         <Link to="/contact" className="btn btn-primary">Contact Us</Link>
       </section>
+
+      {/* Social & Recent Posts Section */}
+      <section className="social">
+        <div className="social-container">
+          <div className="social-grid">
+            <div className="social-card">
+              <h3>Connect With Us</h3>
+              <p className="social-subtitle">Follow our latest updates</p>
+              <div className="social-links">
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="social-link facebook" aria-label="Facebook">
+                  <i className="social-icon fa-brands fa-facebook-f" aria-hidden="true"></i>
+                  <span className="social-text">Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="social-link instagram" aria-label="Instagram">
+                  <i className="social-icon fa-brands fa-instagram" aria-hidden="true"></i>
+                  <span className="social-text">Instagram</span>
+                </a>
+                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" className="social-link linkedin" aria-label="LinkedIn">
+                  <i className="social-icon fa-brands fa-linkedin-in" aria-hidden="true"></i>
+                  <span className="social-text">LinkedIn</span>
+                </a>
+                <a href="https://x.com/" target="_blank" rel="noopener noreferrer" className="social-link x" aria-label="X (Twitter)">
+                  <i className="social-icon fa-brands fa-x-twitter" aria-hidden="true"></i>
+                  <span className="social-text">X (Twitter)</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="posts-card">
+              <h3>Recent Posts</h3>
+              <p className="social-subtitle">Insights from our logistics team</p>
+              <ul className="posts-list">
+                <li className="post-item">
+                  <a href="#" className="post-link" title="Optimizing Air Freight in Q1">
+                    <span className="post-title">Optimizing Air Freight in Q1</span>
+                    <span className="post-meta">Dec 18, 2025 · 5 min read</span>
+                  </a>
+                </li>
+                <li className="post-item">
+                  <a href="#" className="post-link" title="Sea Freight Cost-Saving Strategies">
+                    <span className="post-title">Sea Freight Cost-Saving Strategies</span>
+                    <span className="post-meta">Dec 10, 2025 · 7 min read</span>
+                  </a>
+                </li>
+                <li className="post-item">
+                  <a href="#" className="post-link" title="Customs Compliance Checklist 2026">
+                    <span className="post-title">Customs Compliance Checklist 2026</span>
+                    <span className="post-meta">Dec 02, 2025 · 4 min read</span>
+                  </a>
+                </li>
+              </ul>
+              <div className="posts-actions">
+                <Link to="/services" className="btn btn-secondary">Explore Services</Link>
+                <Link to="/contact" className="btn btn-primary">Talk to Us</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
