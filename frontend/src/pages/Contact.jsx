@@ -39,17 +39,11 @@ function Contact() {
     setErrors(newErrors);
     if (Object.keys(newErrors).length > 0) return;
 
-    // Route via preferred channel
-    if (formData.channel === 'whatsapp') {
-      const number = '250781523519'; // default WhatsApp contact
-      const text = encodeURIComponent(`Hello Magnet Logistics,%0A%0ASubject: ${formData.subject}%0AFrom: ${formData.name} (${formData.email}${formData.phone ? ', ' + formData.phone : ''})%0A%0A${formData.message}`);
-      window.open(`https://wa.me/${number}?text=${text}`, '_blank');
-    } else {
-      const to = 'info@magnetlogistics.com';
-      const subject = encodeURIComponent(formData.subject);
-      const body = encodeURIComponent(`Hello Magnet Logistics,%0A%0A${formData.message}%0A%0A— ${formData.name}${formData.phone ? ' | ' + formData.phone : ''}%0A${formData.email}`);
-      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-    }
+    // Send via Email only (WhatsApp links handled by floating buttons)
+    const to = 'info@magnetlogistics.com';
+    const subject = encodeURIComponent(formData.subject);
+    const body = encodeURIComponent(`Hello Magnet Logistics,%0A%0A${formData.message}%0A%0A— ${formData.name}${formData.phone ? ' | ' + formData.phone : ''}%0A${formData.email}`);
+    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
 
     setSubmitted(true);
     
@@ -85,49 +79,25 @@ function Contact() {
           <p>Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
           
           <div className="info-cards">
-            <div className="info-card">
-              <div className="card-bg-image">
-                <img src={images.generated.warehouse} alt="" />
-              </div>
+            <div className="info-card" style={{backgroundImage: `url(${images.generated.warehouse})`}}>
               <div className="info-icon">📍</div>
               <h3>Visit Us</h3>
               <p>GIKONDO/MAGERWA<br/>Kigali, Rwanda</p>
             </div>
             
-            <div className="info-card">
-              <div className="card-bg-image">
-                <img src={images.services.customs} alt="" />
-              </div>
+            <div className="info-card" style={{backgroundImage: `url(${images.services.customs})`}}>
               <div className="info-icon">📧</div>
               <h3>Email Us</h3>
               <p>info@magnetlogistics.com<br/>support@magnetlogistics.com</p>
             </div>
             
-            <div className="info-card">
-              <div className="card-bg-image">
-                <img src={images.generated.road} alt="" />
-              </div>
+            <div className="info-card" style={{backgroundImage: `url(${images.generated.road})`}}>
               <div className="info-icon">📞</div>
               <h3>Call Us</h3>
               <p>078 152 3519<br/>078 823 1034<br/>Mon-Fri: 8AM - 8PM EST</p>
             </div>
 
-            <div className="info-card whatsapp-card">
-              <div className="card-bg-image">
-                <img src={images.generated.planes} alt="" />
-              </div>
-              <div className="info-icon">💬</div>
-              <h3>WhatsApp</h3>
-              <p>Chat with us instantly</p>
-              <div className="whatsapp-buttons">
-                <a href="https://wa.me/250781523519" target="_blank" rel="noopener noreferrer" className="whatsapp-contact-btn">
-                  078 152 3519
-                </a>
-                <a href="https://wa.me/250788231034" target="_blank" rel="noopener noreferrer" className="whatsapp-contact-btn">
-                  078 823 1034
-                </a>
-              </div>
-            </div>
+            {/* WhatsApp quick links removed; use floating buttons instead */}
           </div>
 
           <div className="map-container">
@@ -222,7 +192,6 @@ function Contact() {
                 <label>Preferred Channel</label>
                 <div className="radio-group">
                   <label><input type="radio" name="channel" value="email" checked={formData.channel === 'email'} onChange={handleChange} /> Email</label>
-                  <label><input type="radio" name="channel" value="whatsapp" checked={formData.channel === 'whatsapp'} onChange={handleChange} /> WhatsApp</label>
                 </div>
               </div>
             </div>

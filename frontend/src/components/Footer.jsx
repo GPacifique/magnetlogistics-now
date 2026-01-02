@@ -51,15 +51,7 @@ function Footer() {
             <li>📧 info@magnetlogistics.com</li>
             <li>🕒 Mon-Fri: 8AM - 8PM EST</li>
           </ul>
-          <div className="whatsapp-contacts">
-            <h4 style={{ marginTop: '20px', marginBottom: '12px' }}>WhatsApp</h4>
-            <a href="https://wa.me/250781523519" target="_blank" rel="noopener noreferrer" className="whatsapp-btn">
-              💬 078 152 3519
-            </a>
-            <a href="https://wa.me/250788231034" target="_blank" rel="noopener noreferrer" className="whatsapp-btn">
-              💬 078 823 1034
-            </a>
-          </div>
+          {/* WhatsApp links moved to global floating buttons */}
         </div>
       </div>
       

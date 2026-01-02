@@ -105,10 +105,7 @@ function About() {
         </div>
 
         <div className="mission-vision">
-          <div className="mission-card">
-            <div className="card-image">
-              <img src={images.generated.planes} alt="Air Freight" />
-            </div>
+          <div className="mission-card" style={{backgroundImage: `url(${images.generated.planes})`}}>
             <div className="card-icon">🎯</div>
             <h2>Our Mission</h2>
             <p>
@@ -118,10 +115,7 @@ function About() {
             </p>
           </div>
 
-          <div className="mission-card vision-card">
-            <div className="card-image">
-              <img src={images.generated.boats} alt="Sea Freight" />
-            </div>
+          <div className="mission-card vision-card" style={{backgroundImage: `url(${images.generated.boats})`}}>
             <div className="card-icon">🔭</div>
             <h2>Our Vision</h2>
             <p>

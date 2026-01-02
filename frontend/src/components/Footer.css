@@ -138,35 +138,7 @@
   color: var(--accent-orange);
 }
 
-.whatsapp-contacts {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.whatsapp-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: #25D366;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
-}
-
-.whatsapp-btn:hover {
-  background: #20bd5a;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-  color: white;
-  padding-left: 20px;
-}
+/* WhatsApp footer buttons removed; replaced by global floating buttons */
 
 @media (max-width: 968px) {
   .footer-content {
