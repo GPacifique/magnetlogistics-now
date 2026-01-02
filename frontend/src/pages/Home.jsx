@@ -168,22 +168,34 @@ function Home() {
       <section className="features">
         <h2>Why Choose Magnet Logistics?</h2>
         <div className="features-grid">
-          <div className="feature-card" style={{backgroundImage: `url(${images.generated.road})`}}>
+          <div className="feature-card">
+            <div className="feature-bg-image">
+              <img src={images.generated.road} alt="" />
+            </div>
             <div className="feature-icon">🚚</div>
             <h3>Fast Delivery</h3>
             <p>Swift and reliable delivery services across the globe</p>
           </div>
-          <div className="feature-card" style={{backgroundImage: `url(${images.generated.warehouse})`}}>
+          <div className="feature-card">
+            <div className="feature-bg-image">
+              <img src={images.generated.warehouse} alt="" />
+            </div>
             <div className="feature-icon">📦</div>
             <h3>Secure Packaging</h3>
             <p>Professional packaging to ensure your items arrive safely</p>
           </div>
-          <div className="feature-card" style={{backgroundImage: `url(${images.generated.boats})`}}>
+          <div className="feature-card">
+            <div className="feature-bg-image">
+              <img src={images.generated.boats} alt="" />
+            </div>
             <div className="feature-icon">🌍</div>
             <h3>Global Coverage</h3>
             <p>Worldwide shipping network spanning 200+ countries</p>
           </div>
-          <div className="feature-card" style={{backgroundImage: `url(${images.generated.planes})`}}>
+          <div className="feature-card">
+            <div className="feature-bg-image">
+              <img src={images.generated.planes} alt="" />
+            </div>
             <div className="feature-icon">💰</div>
             <h3>Competitive Rates</h3>
             <p>Best prices in the industry without compromising quality</p>
